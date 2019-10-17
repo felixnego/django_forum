@@ -10,7 +10,7 @@ User = get_user_model()
 class Post(models.Model):
     user = models.ForeignKey(User, related_name='posts', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now=True)
-    message = models. TextField()
+    message = models.TextField()
     group = models.ForeignKey(Group, related_name='posts', null=True, blank=True, on_delete=models.PROTECT)
 
     def __str__(self):
