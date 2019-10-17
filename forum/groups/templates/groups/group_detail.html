@@ -6,9 +6,9 @@
 
     <div class="content">
         {% if user in group.members.all %}
-            <a class="btn btn-danger" href="{url 'groups:leave' slug=group.slug}">Leave Group</a>
+            <a class="btn btn-danger" href="{% url 'groups:leave' slug=group.slug %}">Leave Group</a>
         {% else %}
-            <a class="btn btn-primary" href="{url 'groups:join' slug=group.slug}">Join Group</a>
+            <a class="btn btn-primary" href="{% url 'groups:join' slug=group.slug %}">Join Group</a>
         {% endif %}
     </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -9,7 +10,7 @@ register = template.Library()
 
 class Group(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    slug = models.SlugFiels(allow_unicode=True, unique=True)
+    slug = models.SlugField(allow_unicode=True, unique=True)
     description = models.TextField(blank=True, default='')
     description_html = models.TextField(editable=False, default='', blank=True)
     members = models.ManyToManyField(User, through='GroupMember')
